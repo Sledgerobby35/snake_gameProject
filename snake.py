@@ -10,9 +10,9 @@ window.tracer(0)
 
 # Game Functions
 def randomYCoor():
-    return random.randrange(-300, 300, 10)
+    return random.randrange(-300, 300, 20)
 def randomXCoor():
-    return random.randrange(-400, 400, 10)
+    return random.randrange(-400, 400, 20)
 def snake_up():
     y = snake.ycor()
     y += 20
@@ -47,9 +47,9 @@ snake.dy = 2
 # Snake Food
 food = turtle.Turtle()
 food.speed(0)
-food.shape("square")
+food.shape("circle")
 food.color("yellow")
-food.shapesize(stretch_wid= 0.5, stretch_len= 0.5)
+food.shapesize(stretch_wid= 1, stretch_len= 1)
 food.penup()
 food.goto(randomXCoor(), randomYCoor())
 print(food.ycor(), food.xcor())
@@ -79,3 +79,5 @@ while True:
         snake.setx(-390)
 
     # Snake Collision
+    if (snake.xcor() == food.xcor() and snake.ycor() == food.ycor()):
+        food.goto(randomXCoor(), randomYCoor())
